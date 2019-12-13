@@ -29,10 +29,10 @@ z = Sdata;                                  % An actual measurement
 y = z - H*XPred ;                           % Comparion between measurement and predicted value
 %%% ---Update stage--- %%%
 %%% Post Sigma estimate %%%
-zsigma=GenerateSigmaPoints(XPred,PPred,gamma);
-zSigma=PredictObservation(zsigma,H);
+sigma=GenerateSigmaPoints(XPred,PPred,gamma);
+zSigma=PredictObservation(sigma,H);
 %%% Post X Sigma estimate %%%
-zb=(wm*zsigma')';
+zb=(wm*sigma')';
 %%% Priori P Sigma estimate %%%
 St=CalcSimgaPointsCovariance(zb,zSigma,wc,R);
 %%% Kalman gain estimate %%%
